@@ -1,1 +1,3 @@
 calvin_debug_dataset
+__pycache__
+*.ipynb
