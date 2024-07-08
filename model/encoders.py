@@ -3,12 +3,14 @@ import torch
 class TextEncoder:
     def __init__(self, device='cuda'):
         from transformers import AutoTokenizer, CLIPTextModelWithProjection
+        self.device = device
         self.model = CLIPTextModelWithProjection.from_pretrained("openai/clip-vit-base-patch32")
         self.tokenizer = AutoTokenizer.from_pretrained("openai/clip-vit-base-patch32")
         self.model.to(device)
 
     def encode(self, x):
         inputs = self.tokenizer(x, padding=True, return_tensors="pt")
+        inputs.to(self.device)
         outputs = self.model(**inputs)
         outputs = self.model(**inputs)
         text_embeds = outputs.text_embeds
