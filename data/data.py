@@ -64,6 +64,6 @@ class CalvinDataset(Dataset):
                 'depth_static' : np.array(depth_static), 
                 'rgb_gripper' : np.array(rgb_gripper), 
                 'depth_gripper' : np.array(depth_gripper), 
-                'text' : np.array(text), 
+                'text' : text, 
                 'actions' : np.array(actions),
                 'next_actions' : np.array(next_actions) }
